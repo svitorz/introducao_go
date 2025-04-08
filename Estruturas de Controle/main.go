@@ -11,22 +11,32 @@ func main() {
 }
 
 func diaDaSemana(numero int) string {
+	var dia string
+
 	switch numero {
 	case 1:
-		return "Domingo."
+		dia = "Domingo."
+		fallthrough // faz com que ele pule o case. Neste caso, ele retorna o que está no default, porque todos tem a clausula fallthrough
 	case 2:
-		return "Segunda-feira."
+		dia = "Segunda-feira."
+		fallthrough
 	case 3:
-		return "Terça-feira."
+		dia = "Terça-feira."
+		fallthrough
 	case 4:
-		return "Quarta-feira."
+		dia = "Quarta-feira."
+		fallthrough
 	case 5:
-		return "Quinta-feira."
+		dia = "Quinta-feira."
+		fallthrough
 	case 6:
-		return "Sexta-feira."
+		dia = "Sexta-feira."
+		fallthrough
 	case 7:
-		return "Sábado"
+		dia = "Sábado"
+		fallthrough
 	default:
-		return "Inválido."
+		dia = "Inválido."
 	}
+	return dia
 }
