@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 	if numero := 15; numero > 10 {
@@ -8,6 +10,27 @@ func main() {
 	}
 	// numero não funciona fora desse escopo do if.
 	fmt.Println(diaDaSemana(2))
+
+	// i := 0
+	// for i < 5 {
+	// 	i++
+	// 	fmt.println("incrementando i")
+	// 	time.sleep(time.Second)
+	// }
+	// fmt.println(i)
+
+	// for j := 0; j < 10; j++ {
+	// 	fmt.println("incrementando j", j)
+	// 	time.sleep(time.Second)
+	// }
+
+	nomes := [3]string{"Vitor", "Alvaro", "Davi"}
+	for indice, nome := range nomes {
+		fmt.Println(nome, indice)
+	}
+	for indice, nome := range "PALAVRA" {
+		fmt.Println(string(nome), indice)
+	}
 }
 
 func diaDaSemana(numero int) string {
@@ -15,7 +38,7 @@ func diaDaSemana(numero int) string {
 
 	switch numero {
 	case 1:
-		dia = "Domingo."
+		dia = "domingo."
 		fallthrough // faz com que ele pule o case. Neste caso, ele retorna o que está no default, porque todos tem a clausula fallthrough
 	case 2:
 		dia = "Segunda-feira."
