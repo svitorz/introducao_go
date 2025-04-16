@@ -10,6 +10,7 @@ type pessoa struct {
 }
 
 type estudante struct {
+	// espécie de herança
 	pessoa
 	curso     string
 	faculdade string
