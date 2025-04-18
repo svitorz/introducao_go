@@ -14,6 +14,9 @@ type cachorro struct {
 }
 
 func main() {
+	/**
+	*	Função Marshal
+	* */
 	c := cachorro{"Rex", "Dalmata", 4}
 	fmt.Println(c)
 
@@ -27,4 +30,22 @@ func main() {
 
 	// printa em formato Json
 	fmt.Println(bytes.NewBuffer(jsonDog))
+
+	/**
+	*	Função Unmarshal
+	* */
+
+	newJsonDog := []byte(`{
+			"nome": "Rex",
+			"raça": "Dálmata", 
+			"idade": 3
+		}`)
+
+	var newC cachorro
+
+	if err := json.Unmarshal(newJsonDog, &newC); err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println(newC)
 }
