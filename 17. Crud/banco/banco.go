@@ -8,7 +8,7 @@ import (
 
 // Conectar abre a conexao com o banco de dados
 func Conectar() (*sql.DB, error) {
-	stringConexao := "root:mydba@/introducao_go?charset=utf8&parseTime=true&loc=Local"
+	stringConexao := "root:mydba@tcp(127.0.0.1:3307)/introducao_go?charset=utf8&parseTime=true&loc=Local"
 
 	db, err := sql.Open("mysql", stringConexao)
 	if err != nil {
