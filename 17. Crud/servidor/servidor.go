@@ -63,7 +63,7 @@ func CriarUsuario(w http.ResponseWriter, r *http.Request) {
 	}
 	log.Printf("Novo usuário criado. ID: %d", idInserido)
 	w.WriteHeader(http.StatusCreated)
-	w.Write([]byte(fmt.Sprintf("Usuário inserido com sucesso! Id: %d", idInserido)))
+	w.Write([]byte(fmt.Sprintf("Usuário inserido com sucesso! Id: %d \n", idInserido)))
 }
 
 func BuscarUsuario(w http.ResponseWriter, r *http.Request) {
@@ -191,10 +191,11 @@ func AtualizarUsuario(w http.ResponseWriter, r *http.Request) {
 
 	_, err = statement.Exec(usuario.Nome, usuario.Email, ID)
 	if err != nil {
-		log.Println("Erro ao inserir no banco de dados:", err)
-		w.Write([]byte("Erro ao inserir no banco de dados"))
+		log.Println("Erro ao atualizar no banco de dados:", err)
+		w.Write([]byte("Erro ao atualizar no banco de dados"))
 		return
 	}
+	fmt.Println("Usuário atualizado no banco de dados. ID:", ID)
 }
 
 func DeletarUsuario(w http.ResponseWriter, r *http.Request) {
@@ -225,10 +226,11 @@ func DeletarUsuario(w http.ResponseWriter, r *http.Request) {
 
 	_, err = statement.Exec(ID)
 	if err != nil {
-		log.Println("Erro ao inserir no banco de dados:", err)
-		w.Write([]byte("Erro ao inserir no banco de dados"))
+		log.Println("Erro ao deletar no banco de dados:", err)
+		w.Write([]byte("Erro ao deletar no banco de dados"))
 		return
 	}
 
+	fmt.Println("Usuário deletado no banco de dados. ID:", ID)
 	w.WriteHeader(http.StatusNoContent)
 }
